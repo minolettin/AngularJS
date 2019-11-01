@@ -1,0 +1,16 @@
+<html ng-app="app">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div ng-controller="postListController">
+    <div ng-repeat="post in ghesme">
+      <h1>{{post.title}}</h1>
+      <p>{{post.text}}</p>
+    </div>
+    <hr/>
+  </div>
+</body>
+</html>
