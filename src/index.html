@@ -2,19 +2,16 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <script src="app.js"></script>
-  <link rel="stylesheet" href="main.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+  <script src="app.module.js"></script>
+  <script src="app.config.js"></script>
+  <script src="post-detail/post-detail.module.js"></script>
+  <script src="post-detail/post-detail.component.js"></script>
+  <script src="post-list/post-list.module.js"></script>
+  <script src="post-list/post-list.component.js"></script>
+  <link rel="stylesheet" href="app.css"/>
 </head>
 <body>
-  <div ng-controller="postListController">
-    <div ng-repeat="post in posts">
-      <div ng-click="readPostById(post.postId)" class="post">
-        <h1>{{post.title}}</h1>
-        <p>{{post.text}}</p>
-        <p>{{post.postId}}</p>
-        <button ng-click="deletePostById(post.postId)">l&ouml;schen</button>
-      </div>
-    </div>
-  </div>
+  <div ng-view></div>
 </body>
 </html>

@@ -1,25 +1,30 @@
 "use strict";
 
-var app = angular.module("app", []);
+var app = angular.module("postList");
 
-app.controller("postListController", function($scope, PostService, $http) {
-  PostService.readAllPosts().then(function(value) {
-    $scope.posts = value;
-    console.log("posts-content: ", $scope.posts);//funktioniert nur innerhalb von funktion da abhängig von value
-  });
-  // Delete Methode bereitstellen
-  $scope.deletePostById = function(id) {
-    PostService.deletePostById(id);
-    // for (var i = 0; i < Object.keys($scope.posts).length; i++) {
-    //   if ($scope.posts[i].postId === id) {
-    //     delete $scope.posts[i];
-    //   }
-    // }
-  };
-  // Methode für Einzelansicht bereitstellen
-  $scope.readPostById = function(id) {
-    PostService.readPostById(id);
-  };
+app.component("postList", {
+  templateUrl: "post-list/post-list.template.html",
+  controller: [
+    "$scope", "PostService", "$http", function PostListController($scope, PostService, $http) {
+      PostService.readAllPosts().then(function(value) {
+        $scope.posts = value;
+        console.log("posts-content: ", $scope.posts);//funktioniert nur innerhalb von funktion da abhängig von value
+      });
+      // Delete Methode bereitstellen
+      $scope.deletePostById = function(id) {
+        PostService.deletePostById(id);
+        // for (var i = 0; i < Object.keys($scope.posts).length; i++) {
+        //   if ($scope.posts[i].postId === id) {
+        //     delete $scope.posts[i];
+        //   }
+        // }
+      };
+      // Methode für Einzelansicht bereitstellen
+      $scope.readPostById = function(id) {
+        PostService.readPostById(id);
+      };
+    }
+  ]
 });
 
 app.factory("PostService", function($http, $window) {

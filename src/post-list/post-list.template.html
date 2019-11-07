@@ -1,0 +1,8 @@
+<div ng-repeat="post in posts">
+  <div ng-click="readPostById(post.postId)" class="post">
+    <h1>{{post.title}}</h1>
+    <p>{{post.text}}</p>
+    <p>{{post.postId}}</p>
+    <button ng-click="deletePostById(post.postId)">l&ouml;schen</button>
+  </div>
+</div>
