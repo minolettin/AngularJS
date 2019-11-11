@@ -5,7 +5,7 @@ angular.module("app")
             .when("/posts", {
               template: "<post-list></post-list>"
             })
-            .when("/posts/:postId", {
+            .when("/post/:postId", {
               template: "<post-detail></post-detail>"
             })
             .otherwise("/posts");

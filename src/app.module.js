@@ -1,5 +1,5 @@
 "use strict";
 
 angular.module("app", [
-  "ngRoute", "postDetail", "postList"
+  "ngRoute", "postDetail", "postList", "PostService"
 ]);
